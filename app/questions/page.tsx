@@ -14,6 +14,9 @@ export default async function QuestionsPage() {
             <a href={`/questions/${id}`}>{subject}</a>
           </li>
         ))}
+        <li>
+          <a href="/questions/new">+ New Question</a>
+        </li>
       </ul>
     </main>
   );
