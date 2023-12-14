@@ -1,4 +1,5 @@
 import { Question } from "@/types/question";
+import style from "../page.module.css";
 
 interface Fetched {
   content: Question[];
@@ -19,16 +20,29 @@ export default async function QuestionsPage({
   const { content, first, last, totalPages } = (await res.json()) as Fetched;
   const pages = getNeighborTenPages(page, totalPages);
   return (
-    <main>
+    <main className={style.main}>
       <h1>Questions</h1>
-      <ul>
+      <ul
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          gap: "0.5rem",
+        }}
+      >
         {content.map(({ id, subject }: Question) => (
           <li key={id}>
             <a href={`/questions/${id}`}>{subject}</a>
           </li>
         ))}
       </ul>
-      <div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          gap: "0.5rem",
+        }}
+      >
         <SpanOrAnchor isSpan={first} page={1} textContent="First" />
         <SpanOrAnchor isSpan={first} page={page} textContent="<" />
         {pages.map((curr) => (
