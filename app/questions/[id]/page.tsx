@@ -17,9 +17,24 @@ export default async function QuestionDetailPage({
   const { subject, content, answerList } = (await res.json()) as Question;
   return (
     <main>
+      <a href="/questions">
+        <h2>Questions</h2>
+      </a>
       <h1>{subject}</h1>
-      <p>{content}</p>
-      <section>
+      <p
+        style={{
+          flex: "1",
+        }}
+      >
+        {content}
+      </p>
+      <section
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "0.5rem",
+        }}
+      >
         <h2>Answers</h2>
         <ul>
           {answerList.map(({ id, content }) => (

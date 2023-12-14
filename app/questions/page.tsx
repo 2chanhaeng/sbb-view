@@ -1,5 +1,4 @@
 import { Question } from "@/types/question";
-import style from "../page.module.css";
 
 interface Fetched {
   content: Question[];
@@ -20,7 +19,7 @@ export default async function QuestionsPage({
   const { content, first, last, totalPages } = (await res.json()) as Fetched;
   const pages = getNeighborTenPages(page, totalPages);
   return (
-    <main className={style.main}>
+    <main>
       <h1>Questions</h1>
       <ul
         style={{

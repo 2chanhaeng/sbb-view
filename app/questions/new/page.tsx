@@ -6,9 +6,44 @@ export default async function NewQuestionPage() {
   return (
     <main>
       <h1>New Question</h1>
-      <form action={postQuestion}>
-        <input name="subject" />
-        <textarea name="content" />
+      <form
+        action={postQuestion}
+        style={{
+          flex: "1 1 0",
+          display: "flex",
+          flexDirection: "column",
+          gap: "0.5rem",
+          width: "max(100%, 20rem)",
+        }}
+      >
+        <fieldset
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            padding: "0.5rem",
+            gap: "0.5rem",
+          }}
+        >
+          <label>Subject</label>
+          <input name="subject" />
+        </fieldset>
+        <fieldset
+          style={{
+            flex: "1 1 0",
+            display: "flex",
+            flexDirection: "column",
+            padding: "0.5rem",
+            gap: "0.5rem",
+          }}
+        >
+          <label>Content</label>
+          <textarea
+            name="content"
+            style={{
+              height: "100%",
+            }}
+          />
+        </fieldset>
         <button type="submit">Submit</button>
       </form>
     </main>
