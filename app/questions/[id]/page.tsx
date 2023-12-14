@@ -38,8 +38,7 @@ export default async function QuestionDetailPage({
 async function postAnswer(id: string, form: FormData) {
   "use server";
   const init = getPostInitFromForm(["content"])(form);
-  console.log(init);
-  fetch(`${process.env.API_URL}/answer/create/${id}`, init);
+  await fetch(`${process.env.API_URL}/answer/create/${id}`, init);
   revalidateTag("question");
   redirect(`/questions/${id}`);
 }
