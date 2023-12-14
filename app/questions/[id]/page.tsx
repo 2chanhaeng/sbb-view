@@ -33,6 +33,7 @@ export default async function QuestionDetailPage({
           display: "flex",
           flexDirection: "column",
           gap: "0.5rem",
+          width: "100%",
         }}
       >
         <h2>Answers</h2>
@@ -42,8 +43,19 @@ export default async function QuestionDetailPage({
           ))}
         </ul>
         <form action={postAnswer.bind(null, id)}>
-          <textarea name="content" />
-          <button type="submit">Submit</button>
+          <fieldset
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "0.5rem",
+            }}
+          >
+            <label>
+              <b>New answer</b>
+            </label>
+            <textarea name="content" />
+            <button type="submit">Submit</button>
+          </fieldset>
         </form>
       </section>
     </main>
